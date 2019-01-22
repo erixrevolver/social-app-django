@@ -105,12 +105,12 @@ class DjangoStrategy(BaseStrategy):
         kwargs['storage'] = self.storage
         kwargs['backend'] = backend
         try:
-            kwargs['response']['gender'] = '0'
+            kwargs['response']['gender'] = ''
             re_name = kwargs['response']['name']
             re_name = u''.join((re_name)).encode('utf-8').strip()
             kwargs['response']['name'] = re_name
             if not kwargs['response']['gender']:
-                kwargs['response']['gender'] = '0'
+                kwargs['response']['gender'] = ''
         except KeyError:
             print('skip decoding')
         return authenticate(*args, **kwargs)
